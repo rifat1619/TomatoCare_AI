@@ -18,6 +18,7 @@ st.set_page_config(
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "model.keras")
+HERO_IMAGE_PATH = os.path.join(BASE_DIR, "tomato_hero.png")
 IMG_SIZE = (224, 224)
 MAX_FILE_SIZE = 5 * 1024 * 1024
 
@@ -618,207 +619,18 @@ button[kind="secondary"]:disabled,
 # Extra CSS for the premium landing page.
 st.markdown("""
 <style>
-/* ---------- LANDING PAGE ---------- */
+/* ---------- PREMIUM LANDING PAGE ---------- */
 .home-shell {
-    min-height: 650px;
+    min-height: calc(100vh - 35px);
     padding: 6px 0 35px;
+    color:#e8eee9;
 }
 
-.home-nav {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding: 6px 0 30px;
-}
-
-.home-brand {
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:#d8ddd8;
-    font-size:21px;
-    font-weight:800;
-    letter-spacing:-.6px;
-}
-
-.home-brand-icon {
-    width:43px;
-    height:43px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:rgba(143,220,171,.12);
-    border:1px solid rgba(143,220,171,.25);
-    font-size:24px;
-}
-
-.hero-title {
-    font-size:58px;
-    line-height:1.04;
-    letter-spacing:-3px;
-    font-weight:800;
-    margin:25px 0 18px;
-    color:#d8ddd8;
-}
-
-.hero-title span {
-    color:#8fdcab;
-}
-
-.hero-text {
-    color:#a4aea7;
-    font-size:16px;
-    line-height:1.65;
-    max-width:540px;
-    margin-bottom:25px;
-}
-
-.scan-card {
-    min-height:330px;
-    border-radius:28px;
-    padding:28px;
-    background:rgba(255,255,255,.075);
-    border:1px solid rgba(200,230,211,.16);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
-}
-
-.scan-inner {
-    height:270px;
-    border:2px dashed rgba(185,221,199,.45);
-    border-radius:21px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-    background:rgba(255,255,255,.025);
-}
-
-.scan-title {
-    color:#e0e4e0;
-    font-size:24px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.scan-icon {
-    font-size:52px;
-    margin-bottom:8px;
-}
-
-.scan-copy {
-    color:#d2d8d3;
-    font-size:14px;
-}
-
-.scan-copy span {
-    color:#8fdcab;
-    text-decoration:underline;
-    font-weight:700;
-}
-
-.scan-meta {
-    color:#8d9890;
-    font-size:11px;
-    margin-top:8px;
-}
-
-.metric-strip {
-    background:rgba(255,255,255,.065);
-    border:1px solid rgba(200,230,211,.15);
-    border-radius:21px;
-    padding:18px 8px;
-    margin:15px 0 48px;
-}
-
-.metric {
-    text-align:center;
-    padding:4px 12px;
-    border-right:1px solid rgba(210,230,218,.17);
-}
-
-.metric:last-child {
-    border-right:0;
-}
-
-.metric-icon {
-    font-size:27px;
-    margin-bottom:5px;
-}
-
-.metric-number {
-    color:#dfe4df;
-    font-size:26px;
-    font-weight:800;
-}
-
-.metric-label {
-    color:#8f9992;
-    font-size:11px;
-    margin-top:3px;
-}
-
-.section-title {
-    color:#dce1dc;
-    font-size:29px;
-    font-weight:800;
-    text-align:center;
-    margin:8px 0 25px;
-    letter-spacing:-1px;
-}
-
-.feature-card {
-    min-height:230px;
-    padding:25px 19px;
-    border-radius:18px;
-    background:rgba(255,255,255,.065);
-    border:1px solid rgba(200,230,211,.12);
-    text-align:center;
-}
-
-.feature-icon {
-    color:#8fdcab;
-    font-size:45px;
-    margin-bottom:12px;
-}
-
-.feature-title {
-    color:#dfe4df;
-    font-size:16px;
-    line-height:1.3;
-    font-weight:800;
-}
-
-.feature-text {
-    color:#929d95;
-    font-size:12px;
-    line-height:1.55;
-    margin-top:10px;
-}
-
-.home-footer {
-    border-top:1px solid rgba(200,230,211,.13);
-    margin-top:60px;
-    padding-top:25px;
-    color:#818b84;
-    font-size:11px;
-}
-
-.home-footer-links {
-    word-spacing:22px;
-}
-
-.home-cta {
-    margin-top:18px;
-}
-
-/* Dark premium landing background */
 .stApp:has(.home-shell) {
     background:
-      radial-gradient(circle at 82% 18%, rgba(74,130,91,.10), transparent 25%),
-      radial-gradient(circle at 15% 65%, rgba(65,130,87,.07), transparent 27%),
-      linear-gradient(135deg,#09160e 0%,#0c1b11 55%,#09150d 100%);
+      radial-gradient(circle at 82% 18%, rgba(56,145,83,.13), transparent 25%),
+      radial-gradient(circle at 12% 55%, rgba(50,120,75,.09), transparent 28%),
+      linear-gradient(135deg,#07140b 0%,#0a1c10 52%,#07150c 100%);
 }
 
 .stApp:has(.home-shell) [data-testid="stHeader"] {
@@ -826,30 +638,331 @@ st.markdown("""
 }
 
 .stApp:has(.home-shell) .main .block-container {
-    max-width:1100px;
-    padding-top:20px;
+    max-width:1180px;
+    padding-top:12px;
 }
 
-/* Home buttons */
-.home-shell .stButton > button {
-    background:linear-gradient(135deg,#91dfb1,#79c99b) !important;
-    color:#102118 !important;
-    border:0 !important;
+/* Brand */
+.home-top {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px 0 18px;
+    border-bottom:1px solid rgba(184,224,198,.10);
+}
+
+.home-brand {
+    display:flex;
+    align-items:center;
+    gap:11px;
+    color:#eef3ef;
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-.7px;
+}
+
+.home-brand-icon {
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:linear-gradient(145deg,#174f2a,#0a2b17);
+    border:1px solid rgba(125,225,158,.30);
+    box-shadow:0 8px 22px rgba(0,0,0,.20);
+}
+
+/* Navigation buttons */
+.home-nav-grid {
+    display:flex;
+    align-items:center;
+    gap:2px;
+}
+
+.stApp:has(.home-shell) .home-nav-row .stButton > button {
+    min-height:38px !important;
+    background:transparent !important;
+    border:1px solid transparent !important;
+    color:#b9c5bd !important;
+    box-shadow:none !important;
+    font-size:12px !important;
+    font-weight:600 !important;
+    padding:0 9px !important;
+}
+
+.stApp:has(.home-shell) .home-nav-row .stButton > button:hover {
+    background:rgba(94,205,128,.09) !important;
+    color:#a9e9bb !important;
+    border-color:rgba(116,220,145,.12) !important;
+    transform:none !important;
+}
+
+.stApp:has(.home-shell) .try-now .stButton > button {
+    background:linear-gradient(135deg,#49b66c,#208b4a) !important;
+    color:white !important;
+    border:1px solid #55c879 !important;
+    border-radius:11px !important;
+    box-shadow:0 7px 20px rgba(34,151,77,.20) !important;
+    font-weight:800 !important;
+}
+
+.stApp:has(.home-shell) .try-now .stButton > button:hover {
+    background:linear-gradient(135deg,#59c97c,#249c52) !important;
+    color:white !important;
+}
+
+/* Hero */
+.hero-wrap {
+    padding:48px 0 28px;
+}
+
+.hero-badge {
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 13px;
+    border-radius:30px;
+    background:rgba(59,168,91,.10);
+    border:1px solid rgba(104,213,132,.20);
+    color:#8fe0a8;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.2px;
+}
+
+.hero-title {
+    font-size:54px;
+    line-height:1.04;
+    letter-spacing:-2.8px;
+    font-weight:850;
+    color:#edf2ee;
+    margin:19px 0 16px;
+}
+
+.hero-title .green {
+    color:#62ca7e;
+}
+
+.hero-text {
+    color:#aab7ae;
+    font-size:14px;
+    line-height:1.72;
+    max-width:550px;
+    margin-bottom:21px;
+}
+
+.mini-benefits {
+    display:flex;
+    gap:25px;
+    margin:20px 0 25px;
+}
+
+.mini-item {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#dbe4dd;
+    font-size:10px;
+    font-weight:700;
+}
+
+.mini-icon {
+    width:31px;
+    height:31px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(45,172,83,.13);
+    border:1px solid rgba(96,210,127,.18);
+    color:#83d99b;
+    font-size:15px;
+}
+
+.hero-cta .stButton > button {
     min-height:48px !important;
-    border-radius:26px !important;
-    font-size:15px !important;
-    box-shadow:0 8px 22px rgba(88,184,123,.15) !important;
+    border-radius:13px !important;
+    font-size:13px !important;
+    font-weight:800 !important;
 }
 
-.home-shell .stButton > button:hover,
-.home-shell .stButton > button:focus,
-.home-shell .stButton > button:active {
-    background:linear-gradient(135deg,#a0e7bc,#80d1a1) !important;
-    color:#102118 !important;
-    border:0 !important;
+.hero-secondary .stButton > button {
+    background:rgba(255,255,255,.025) !important;
+    border:1px solid rgba(135,177,149,.22) !important;
+    color:#d4ddd6 !important;
+}
+
+.hero-secondary .stButton > button:hover {
+    background:rgba(93,188,119,.08) !important;
+    border-color:rgba(105,205,133,.38) !important;
+    color:#e8f2ea !important;
+}
+
+/* Hero image */
+.hero-photo {
+    position:relative;
+    border-radius:27px;
+    overflow:hidden;
+    border:1px solid rgba(146,211,162,.20);
+    box-shadow:0 25px 60px rgba(0,0,0,.28);
+    background:#102016;
+}
+
+.hero-photo img {
+    width:100%;
+    height:455px;
+    object-fit:cover;
+    display:block;
+}
+
+.hero-overlay {
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    padding:16px;
+    border-radius:17px;
+    background:rgba(8,28,14,.86);
+    border:1px solid rgba(154,215,169,.17);
+    backdrop-filter:blur(10px);
+}
+
+.hero-overlay-title {
+    color:#edf4ee;
+    font-size:14px;
+    font-weight:800;
+}
+
+.hero-overlay-text {
+    color:#a8b6ac;
+    font-size:10px;
+    line-height:1.55;
+    margin-top:5px;
+}
+
+/* Metrics */
+.metric-strip {
+    background:linear-gradient(90deg,rgba(255,255,255,.045),rgba(67,137,81,.065),rgba(255,255,255,.045));
+    border:1px solid rgba(154,206,167,.15);
+    border-radius:19px;
+    padding:16px 8px;
+    margin:15px 0 47px;
+    box-shadow:inset 0 1px rgba(255,255,255,.03);
+}
+
+.metric {
+    text-align:center;
+    padding:4px 12px;
+    border-right:1px solid rgba(183,216,192,.13);
+}
+
+.metric:last-child { border-right:0; }
+.metric-icon { font-size:23px; margin-bottom:4px; }
+.metric-number { color:#e7eee8; font-size:23px; font-weight:800; }
+.metric-label { color:#87968c; font-size:9px; margin-top:3px; }
+
+/* Feature section */
+.section-title {
+    color:#e8eee9;
+    font-size:27px;
+    font-weight:800;
+    text-align:center;
+    margin:8px 0 8px;
+    letter-spacing:-1px;
+}
+
+.section-subtitle {
+    text-align:center;
+    color:#8e9d93;
+    font-size:11px;
+    margin-bottom:24px;
+}
+
+.feature-card {
+    min-height:205px;
+    padding:23px 18px;
+    border-radius:17px;
+    background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.035));
+    border:1px solid rgba(164,210,174,.12);
+    box-shadow:0 12px 28px rgba(0,0,0,.10);
+    transition:all .18s ease;
+}
+
+.feature-card:hover {
+    border-color:rgba(112,205,137,.27);
+    transform:translateY(-2px);
+}
+
+.feature-icon {
+    width:48px;
+    height:48px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(55,178,87,.10);
+    border:1px solid rgba(103,211,128,.18);
+    color:#87dca0;
+    font-size:25px;
+    margin-bottom:16px;
+}
+
+.feature-title {
+    color:#e1e9e3;
+    font-size:13px;
+    line-height:1.3;
+    font-weight:800;
+}
+
+.feature-text {
+    color:#8f9e94;
+    font-size:10px;
+    line-height:1.65;
+    margin-top:9px;
+}
+
+/* Bottom banner */
+.home-bottom {
+    margin-top:28px;
+    padding:17px 19px;
+    border-radius:17px;
+    border:1px solid rgba(151,207,164,.13);
+    background:rgba(255,255,255,.035);
+}
+
+.home-bottom-title {
+    color:#dce6df;
+    font-size:11px;
+    font-weight:800;
+}
+
+.home-bottom-text {
+    color:#89988f;
+    font-size:9px;
+    margin-top:4px;
+}
+
+.home-bottom .stButton > button {
+    min-height:38px !important;
+    border-radius:10px !important;
+    background:transparent !important;
+    color:#79d795 !important;
+    border:1px solid rgba(102,202,126,.25) !important;
+    font-size:10px !important;
+}
+
+/* Footer */
+.home-footer {
+    border-top:1px solid rgba(183,214,191,.10);
+    margin-top:34px;
+    padding-top:20px;
+    color:#75847b;
+    font-size:9px;
 }
 
 /* Hide sidebar on Home for a clean landing page */
+
 .stApp:has(.home-shell) [data-testid="stSidebar"] {
     display:none;
 }
@@ -863,89 +976,132 @@ if st.session_state.page == "Home":
 
     # Top navigation
     st.markdown("""
-    <div class="home-nav">
+    <div class="home-top">
         <div class="home-brand">
             <div class="home-brand-icon">🌿</div>
-            TomatoCare AI
+            TomatoCare <span style="color:#63cf80;">AI</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    nav1, nav2, nav3, nav4, nav5, nav6 = st.columns([1,1,1,1,1,1.1])
+    st.markdown('<div class="home-nav-row">', unsafe_allow_html=True)
+    n1, n2, n3, n4, n5, n6 = st.columns([1,1,1,1,1,1.25])
 
-    with nav1:
-        if st.button("Home", key="home_nav_home", use_container_width=True):
+    with n1:
+        if st.button("Home", key="nav_home", use_container_width=True):
             st.session_state.page = "Home"
             st.rerun()
-    with nav2:
-        if st.button("Features", key="home_nav_features", use_container_width=True):
+    with n2:
+        if st.button("Features", key="nav_features", use_container_width=True):
             st.session_state.page = "Features"
             st.rerun()
-    with nav3:
-        if st.button("Analysis", key="home_nav_analysis", use_container_width=True):
+    with n3:
+        if st.button("Analysis", key="nav_analysis", use_container_width=True):
             st.session_state.page = "Dashboard"
             st.rerun()
-    with nav4:
-        if st.button("Community", key="home_nav_community", use_container_width=True):
+    with n4:
+        if st.button("Community", key="nav_community", use_container_width=True):
             st.session_state.page = "About Project"
             st.rerun()
-    with nav5:
-        if st.button("Support", key="home_nav_support", use_container_width=True):
+    with n5:
+        if st.button("Support", key="nav_support", use_container_width=True):
             st.session_state.page = "Prevention Tips"
             st.rerun()
-    with nav6:
-        if st.button("Try Now", key="home_try_now", use_container_width=True):
+    with n6:
+        st.markdown('<div class="try-now">', unsafe_allow_html=True)
+        if st.button("🌿  Try Now →", key="nav_try_now", use_container_width=True):
             st.session_state.page = "Dashboard"
             st.rerun()
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Hero
+    st.markdown('<div class="hero-wrap">', unsafe_allow_html=True)
 
     hero_left, hero_right = st.columns([1.02, .98], gap="large")
 
     with hero_left:
         st.markdown("""
+        <div class="hero-badge">✦ AI-Powered Plant Health Assistant</div>
+
         <div class="hero-title">
-            Diagnose<br>
-            <span>Tomato Diseases</span>
+            Detect Tomato Diseases<br>
+            <span class="green">Early, Save Your Yield</span>
         </div>
+
         <div class="hero-text">
-            Leverage advanced AI to keep your plants healthy with
-            instant visual analysis. Upload a tomato leaf image and
-            receive an AI-assisted disease prediction.
+            Advanced AI technology to identify tomato leaf diseases instantly
+            and provide useful recommendations for healthier plants and better harvests.
         </div>
-        """, unsafe_allow_html=True)
 
-        if st.button("Get Diagnosis", key="hero_diagnosis", use_container_width=True):
-            st.session_state.page = "Dashboard"
-            st.rerun()
-
-    with hero_right:
-        st.markdown("""
-        <div class="scan-card">
-            <div class="scan-inner">
-                <div class="scan-title">Scan a Tomato Leaf</div>
-                <div class="scan-icon">📷 🌿</div>
-                <div class="scan-copy">
-                    Click below to <span>upload</span> a leaf image
-                </div>
-                <div class="scan-meta">Supported formats: JPG, JPEG, PNG • Max 5MB</div>
+        <div class="mini-benefits">
+            <div class="mini-item">
+                <div class="mini-icon">🌱</div>
+                <div>AI-Powered<br><span style="color:#84948a;font-weight:500;">Smart Detection</span></div>
+            </div>
+            <div class="mini-item">
+                <div class="mini-icon">🛡️</div>
+                <div>Accurate<br><span style="color:#84948a;font-weight:500;">High Precision</span></div>
+            </div>
+            <div class="mini-item">
+                <div class="mini-icon">⚡</div>
+                <div>Instant<br><span style="color:#84948a;font-weight:500;">Fast Results</span></div>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("📷  Scan a Tomato Leaf", key="scan_leaf_home", use_container_width=True):
-            st.session_state.page = "Dashboard"
-            st.rerun()
+        cta1, cta2 = st.columns([1,1], gap="small")
 
-    st.markdown("""
-    <div class="metric-strip">
-    """, unsafe_allow_html=True)
+        with cta1:
+            st.markdown('<div class="hero-cta">', unsafe_allow_html=True)
+            if st.button("🔍  Get Diagnosis  →", key="home_get_diagnosis", use_container_width=True):
+                st.session_state.page = "Dashboard"
+                st.rerun()
+            st.markdown('</div>', unsafe_allow_html=True)
 
+        with cta2:
+            st.markdown('<div class="hero-secondary">', unsafe_allow_html=True)
+            if st.button("☁️  Scan a Tomato Leaf", key="home_scan_leaf", use_container_width=True):
+                st.session_state.page = "Dashboard"
+                st.rerun()
+            st.markdown('</div>', unsafe_allow_html=True)
+
+    with hero_right:
+        if os.path.exists(HERO_IMAGE_PATH):
+            # Local image keeps the app independent of external image URLs.
+            st.markdown('<div class="hero-photo">', unsafe_allow_html=True)
+            st.image(HERO_IMAGE_PATH, use_container_width=True)
+            st.markdown("""
+                <div class="hero-overlay">
+                    <div class="hero-overlay-title">🛡️ Protect Your Plants</div>
+                    <div class="hero-overlay-text">
+                        Early detection helps prevent disease spread and supports
+                        better crop health, yield, and quality.
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown("""
+            <div class="hero-photo">
+                <div style="height:455px;display:flex;align-items:center;justify-content:center;color:#8ca095;">
+                    🍅 Add <b style="margin:0 5px;">tomato_hero.png</b> beside app.py
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Metrics
     m1, m2, m3, m4 = st.columns(4)
+    st.markdown('<div class="metric-strip">', unsafe_allow_html=True)
 
     metrics = [
-        ("🌿", "2,971", "Leaf Images"),
-        ("📈", "90.21%", "Val Accuracy"),
-        ("🎯", "83.21%", "Accuracy"),
-        ("🕸️", "DenseNet121", "Architecture"),
+        ("🌿", "2,971+", "Leaf Images Analyzed"),
+        ("🎯", "90.21%", "Validation Accuracy"),
+        ("🛡️", "83.21%", "Model Accuracy"),
+        ("📈", "DenseNet121", "AI Architecture"),
     ]
 
     for col, (icon, number, label) in zip([m1,m2,m3,m4], metrics):
@@ -958,19 +1114,24 @@ if st.session_state.page == "Home":
             </div>
             """, unsafe_allow_html=True)
 
-    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    # Features
     st.markdown('<div class="section-title">Why Choose TomatoCare AI?</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-subtitle">Smart, visual, AI-assisted support for better tomato plant care.</div>',
+        unsafe_allow_html=True
+    )
 
     features = [
-        ("🔬", "Detailed Symptom<br>Identification",
-         "Early detection of diseases through visual leaf analysis."),
-        ("🌱", "Health Status<br>Interpretation",
-         "Instantly assesses overall plant health from photos."),
-        ("🕸️", "Dense Feature<br>Optimization",
-         "DenseNet121 extracts complex and useful leaf patterns."),
-        ("🍃", "Targeted Disease<br>Diagnosis",
-         "Accurate identification with actionable recommendations."),
+        ("🔬", "Early Detection",
+         "Identify diseases like Early Blight, Leaf Mold, and Septoria Leaf Spot at the earliest stage."),
+        ("🌱", "Health Insights",
+         "Get useful insights about your plant's health and recommended actions."),
+        ("🧠", "AI-Powered",
+         "Built with the DenseNet121 architecture for high-quality image classification."),
+        ("🍃", "Better Yield",
+         "Take the right actions earlier and support healthier crop growth."),
     ]
 
     fcols = st.columns(4)
@@ -985,10 +1146,29 @@ if st.session_state.page == "Home":
             </div>
             """, unsafe_allow_html=True)
 
+    # Bottom banner
+    b1, b2 = st.columns([4.5,1], vertical_alignment="center")
+
+    with b1:
+        st.markdown("""
+        <div class="home-bottom">
+            <div class="home-bottom-title">🌱 Built for smarter plant care</div>
+            <div class="home-bottom-text">
+                Designed for farmers, gardeners, and agri-enthusiasts to make
+                better plant-care decisions with AI-assisted image analysis.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with b2:
+        if st.button("Learn More →", key="home_learn_more", use_container_width=True):
+            st.session_state.page = "About Project"
+            st.rerun()
+
     st.markdown("""
     <div class="home-footer">
-        <span class="home-footer-links">Home Features Analysis Support</span>
-        <span style="float:right;">© 2026 TomatoCare AI</span>
+        <span>TomatoCare AI</span>
+        <span style="float:right;">© 2026 TomatoCare AI • Smart Farming, Better Future.</span>
     </div>
     </div>
     """, unsafe_allow_html=True)
