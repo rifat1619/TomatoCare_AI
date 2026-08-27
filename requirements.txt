@@ -1,6 +1,0 @@
-streamlit
-torch
-torchvision
-numpy
-Pillow
-gradio
